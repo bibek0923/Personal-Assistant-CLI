@@ -79,6 +79,15 @@ class File_Analyser:
         """
         return len(self.get_file_content())
     
+    def get_character_count_without_space(self) -> int:
+        """
+        Counts the number of characters in the file content without space.
+
+        Returns:
+            int: The total number of non-space characters.
+        """
+        return len(self.get_file_content().replace(' ', ''))
+    
     def get_word_frequency(self) -> dict:
         """
         Calculates the frequency of each word in the file content.
@@ -112,8 +121,8 @@ class File_Analyser:
 try:
     fa = File_Analyser(os.path.join(ROOT_DIR, 'sample_file.txt'))
     print(f"Word count : {fa.get_word_count()}") # 618 Words
-    print(f"Character count : {fa.get_character_count()}")  
-    print(f"Words Frequency : {fa.get_word_frequency()}")
+    print(f"Character count : {fa.get_character_count()}") 
+    print(f"Character count (Without Space) : {fa.get_character_count_without_space()}")  
     wf = fa.get_most_frequent_word()
     print(f"Most Frequent Word : {wf[0]} with frequency of {wf[1]}")
 except Exception as e:
