@@ -121,7 +121,7 @@ class File_Analyser:
 
 try:
     fa = File_Analyser(os.path.join(ROOT_DIR, 'sample_file.txt'))
-    print(f"Word count : {fa.get_word_count()}") # 618 Words
+    print(f"Word count : {fa.get_word_count()}")
     print(f"Character count : {fa.get_character_count()}") 
     print(f"Character count (Without Space) : {fa.get_character_count_without_space()}")  
     wf = fa.get_most_frequent_word()
