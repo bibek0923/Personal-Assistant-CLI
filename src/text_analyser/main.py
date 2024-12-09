@@ -2,6 +2,9 @@
 Module for Text Analyser
 --
 '''
+import os
+
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class File_Analyser:
     
@@ -43,7 +46,6 @@ class File_Analyser:
         self.__frequent_word = ''
         frequency = 0
         for key, value in self.__word_frequency.items():
-            print(key, value)
             if value >= frequency:
                 frequency = value
                 self.__frequent_word = key
@@ -51,7 +53,7 @@ class File_Analyser:
         return self.__frequent_word
 
 try:
-    fa = File_Analyser('sample_file.txt')
+    fa = File_Analyser(os.path.join(ROOT_DIR, 'sample_file.txt'))
     print(f"Word count : {fa.get_word_count()}") # 618 Words
     print(f"Character count : {fa.get_character_count()}")  
     print(f"Words Frequency : {fa.get_word_frequency()}")
