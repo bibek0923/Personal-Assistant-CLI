@@ -110,6 +110,7 @@ class File_Analyser:
         Returns:
             tuple: A tuple containing the most frequent word and its frequency.
         """
+        self.get_word_frequency()
         self.__frequent_word = ''
         self.__max_frequency = 0
         for key, value in self.__word_frequency.items():
