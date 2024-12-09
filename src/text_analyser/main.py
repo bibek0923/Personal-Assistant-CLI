@@ -24,7 +24,7 @@ class File_Analyser:
         self.__words = list()
         for p in self.__paragraph:    
             self.__words.extend(w for w in p.split(' '))
-        self.__words = [w.strip(',?.;!:') for w in self.__words]
+        self.__words = [w.strip(',?.;!:').lower() for w in self.__words]
         return self.__words
 
     def get_word_count(self) -> int:
