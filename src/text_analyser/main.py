@@ -42,21 +42,21 @@ class File_Analyser:
                 self.__word_frequency[w] = 1
         return self.__word_frequency
     
-    def get_most_frequent_word(self) -> str:
+    def get_most_frequent_word(self) -> tuple:
         self.__frequent_word = ''
-        frequency = 0
+        self.__max_frequency = 0
         for key, value in self.__word_frequency.items():
-            if value >= frequency:
-                frequency = value
+            if value >= self.__max_frequency:
+                self.__max_frequency = value
                 self.__frequent_word = key
-        print(f"Most frequent word is {self.__frequent_word} with frequency of {frequency}")
-        return self.__frequent_word
+        return self.__frequent_word, self.__max_frequency
 
 try:
     fa = File_Analyser(os.path.join(ROOT_DIR, 'sample_file.txt'))
     print(f"Word count : {fa.get_word_count()}") # 618 Words
     print(f"Character count : {fa.get_character_count()}")  
     print(f"Words Frequency : {fa.get_word_frequency()}")
-    print(f"Most Frequent Word : {fa.get_most_frequent_word()}")
+    wf = fa.get_most_frequent_word()
+    print(f"Most Frequent Word : {wf[0]} with frequency of {wf[1]}")
 except Exception as e:
     print(e)
