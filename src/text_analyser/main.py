@@ -7,8 +7,30 @@ import os
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class File_Analyser:
-    
+    """
+    A class for analyzing text files. Provides functionalities to read a file, 
+    analyze its content, and extract useful information like word count, 
+    character count, and word frequency.
+
+    Attributes:
+        __filename (str): The name of the file being analyzed.
+        __file_content (str): The content of the file as a string.
+        __paragraph (list[str]): Paragraphs of the file content split by newlines (internal use).
+        __words (list[str]): List of words in the file content (internal use).
+        __word_frequency (dict): Frequency of each word in the file content (internal use).
+        __frequent_word (str): The most frequent word in the file content (internal use).
+        __max_frequency (int): The frequency of the most frequent word (internal use).
+    """
     def __init__(self, filename:str):
+        """
+        Initializes the File_Analyser with the provided filename and reads its content.
+
+        Args:
+            filename (str): The name of the file to analyze.
+
+        Raises:
+            Exception: If the file does not exist or cannot be opened.
+        """
         self.__filename = filename
         try:
             with open(self.__filename, 'r') as f:
@@ -17,9 +39,21 @@ class File_Analyser:
             raise Exception(f"ERROR : File does not exist {self.__filename}{e}")
     
     def get_file_content(self) -> str:
+        """
+        Retrieves the content of the file.
+
+        Returns:
+            str: The entire content of the file as a string.
+        """
         return self.__file_content
 
     def get_words(self) -> list[str]:
+        """
+        Extracts and returns a list of words from the file content.
+
+        Returns:
+            list[str]: A list of words in lowercase and stripped of punctuation.
+        """
         self.__paragraph = self.get_file_content().split('\n')
         self.__words = list()
         for p in self.__paragraph:    
@@ -28,12 +62,30 @@ class File_Analyser:
         return self.__words
 
     def get_word_count(self) -> int:
+        """
+        Counts the number of words in the file content.
+
+        Returns:
+            int: The total number of words.
+        """
         return len(self.get_words())
 
     def get_character_count(self) -> int:
+        """
+        Counts the number of characters in the file content.
+
+        Returns:
+            int: The total number of characters.
+        """
         return len(self.get_file_content())
     
     def get_word_frequency(self) -> dict:
+        """
+        Calculates the frequency of each word in the file content.
+
+        Returns:
+            dict: A dictionary where keys are words and values are their frequencies.
+        """
         self.__word_frequency = dict()
         for w in self.get_words():
             if w in self.__word_frequency.keys():
@@ -43,6 +95,12 @@ class File_Analyser:
         return self.__word_frequency
     
     def get_most_frequent_word(self) -> tuple:
+        """
+        Finds the most frequent word in the file content.
+
+        Returns:
+            tuple: A tuple containing the most frequent word and its frequency.
+        """
         self.__frequent_word = ''
         self.__max_frequency = 0
         for key, value in self.__word_frequency.items():
