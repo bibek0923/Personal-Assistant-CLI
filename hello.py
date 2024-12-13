@@ -1,5 +1,5 @@
 def main():
-    print("Hello from personal-assistant-cli-app!")
+    print("Hello from personal-assistant-cli-app!!")
 
 
 if __name__ == "__main__":
