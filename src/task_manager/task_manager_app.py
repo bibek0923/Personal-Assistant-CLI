@@ -1,14 +1,3 @@
-'''
-1. Task Manager
-
-- Add, view, delete, or mark tasks as complete.
-- Tasks should be stored in a file to persist between sessions.
-- Use dictionaries or lists to organize tasks.
-
-'''
-
-
-
 import json
 import os
 
@@ -95,5 +84,5 @@ def main():
         else:
             print("Invalid option, please try again.")
 
-if __name__ == "__main__":
-    main()
+# Directly call main()
+main()
