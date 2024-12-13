@@ -1,9 +1,9 @@
-from file_operations.main import start as start_file_operations
-from text_analyser.main import start as start_text_analyser
-from personal_journal.personal_journal import main as start_personal_journal
-from random_quotes.random_quotes import start as start_random_quotes
-from calc_func.calc import start as start_calculator
-from task_manager.task_manager_app import main as start_task_manager
+from src.file_operations.file_operation import start as start_file_operations
+from src.text_analyser.text_analyser import start as start_text_analyser
+from src.personal_journal.personal_journal import main as start_personal_journal
+from src.random_quotes.random_quotes import start as start_random_quotes
+from src.calc_func.calc import start as start_calculator
+from src.task_manager.task_manager_app import main as start_task_manager
 
 
 def main():

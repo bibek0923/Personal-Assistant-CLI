@@ -75,4 +75,4 @@ def main():
 entries = load_entries()
 
 # Call main() directly
-main()
+# main()
