@@ -76,10 +76,41 @@ class File_Operations:
         except Exception as e:
             raise Exception(f"ERROR : File does not exist {self.__filename}{e}")
 
-try:
-    fo = File_Operations(os.path.join(ROOT_DIR, 'hello.txt'))
-    fo.read_file_content()
-    fo.append_to_file(" hello")
-    fo.delete_file('hello.txt')
-except Exception as e:
-    print(e)
+
+def file_menu() -> int:
+    print("-------------------------------------------")
+    print("Welcome to File Operations")
+    print("Select from options below:")
+    print("-------------------------------------------")
+    print("1. Read File")
+    print("2. Append To File")
+    print("3. Delete File")
+    print("-------------------------------------------")
+    print("Press any key to exit")
+    print("-------------------------------------------")
+    try: 
+        return int(input("Enter option : "))
+    except Exception as e:
+        return 0
+
+def start():
+    try:
+        fo = File_Operations(os.path.join(ROOT_DIR, 'hello.txt'))
+        option = 1
+        while(option):
+            option = file_menu()
+            if (option == 1):
+                print('\n')
+                fo.read_file_content()
+            elif(option == 2):  
+                print('\n') 
+                fo.append_to_file(" hello") 
+            elif(option == 3):
+                print('\n') 
+                fo.delete_file('hello.txt')
+            else:
+                print("\nExiting...")
+    except Exception as e:
+        print(e)
+
+start()

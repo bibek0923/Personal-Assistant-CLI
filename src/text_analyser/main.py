@@ -119,12 +119,42 @@ class File_Analyser:
                 self.__frequent_word = key
         return self.__frequent_word, self.__max_frequency
 
-try:
-    fa = File_Analyser(os.path.join(ROOT_DIR, 'sample_file.txt'))
-    print(f"Word count : {fa.get_word_count()}")
-    print(f"Character count : {fa.get_character_count()}") 
-    print(f"Character count (Without Space) : {fa.get_character_count_without_space()}")  
-    wf = fa.get_most_frequent_word()
-    print(f"Most Frequent Word : {wf[0]} with frequency of {wf[1]}")
-except Exception as e:
-    print(e)
+
+def file_menu() -> int:
+    print("-------------------------------------------")
+    print("Welcome to File Analyser")
+    print("Select from options below:")
+    print("-------------------------------------------")
+    print("1. Word Count")
+    print("2. Character Count")
+    print("3. Character Count (Without Space)")
+    print("4. Most frequenct word")
+    print("-------------------------------------------")
+    print("Press any key to exit")
+    print("-------------------------------------------")
+    try: 
+        return int(input("Enter option : "))
+    except Exception as e:
+        return 0
+
+def start():
+    try:
+        fa = File_Analyser(os.path.join(ROOT_DIR, 'sample_file.txt'))
+        option = 1
+        while(option):
+            option = file_menu()
+            if (option == 1):
+                print(f"\nWord count : {fa.get_word_count()}\n")
+            elif(option == 2):    
+                print(f"\nCharacter count : {fa.get_character_count()}\n") 
+            elif(option == 3):
+                print(f"\nCharacter count (Without Space) : {fa.get_character_count_without_space()}\n")  
+            elif(option == 4):
+                wf = fa.get_most_frequent_word()
+                print(f"\nMost Frequent Word : {wf[0]} with frequency of {wf[1]}\n")
+            else:
+                print("\nExiting...")
+    except Exception as e:
+        print(e)
+
+start()
