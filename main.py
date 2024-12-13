@@ -1,8 +1,8 @@
 from file_operations.main import start as start_file_operations
 from text_analyser.main import start as start_text_analyser
 from personal_journal.personal_journal import main as start_personal_journal
-from random_quotes.random_quotes import main as start_random_quotes
-from calc_func.calc import main as start_calculator
+from random_quotes.random_quotes import start as start_random_quotes
+from calc_func.calc import start as start_calculator
 from task_manager.task_manager_app import main as start_task_manager
 
 
