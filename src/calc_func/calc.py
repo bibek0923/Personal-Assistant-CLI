@@ -6,7 +6,10 @@
 """
 def calculator():
     try:
-        print("Enter your choice")
+        print("Welcome to Calculator")
+        print("-------------------------------------------")
+        
+        print("Enter the type of operation :")
         print("1. Addition")
         print("2. Subtraction")
         print("3. Division")
@@ -14,7 +17,7 @@ def calculator():
         print("5. Exit")
         
         
-        option=int(input("Enter the type of operation :"))
+        option=int(input("Enter option: "))
         match option:
             case 1: 
                 num1=int(input("Input the first number:"))
